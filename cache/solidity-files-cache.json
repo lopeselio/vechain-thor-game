@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/eliojordanlopes/Desktop/Blockchain/Moralis/Vechain/QuestForOasis/contracts/DungeonToken.sol": {
-      "lastModificationDate": 1653854996217,
-      "contentHash": "24d422af9cb8cfb067c7907477a12d66",
+      "lastModificationDate": 1653880371842,
+      "contentHash": "ab029e2260f337434b1c2a2b2b179a31",
       "sourceName": "contracts/DungeonToken.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -28,21 +28,14 @@
           }
         }
       },
-      "imports": [
-        "hardhat/console.sol",
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "DungeonToken"
-      ]
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
     },
-    "/Users/eliojordanlopes/Desktop/Blockchain/Moralis/Vechain/QuestForOasis/node_modules/hardhat/console.sol": {
-      "lastModificationDate": 1653855230402,
-      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
-      "sourceName": "hardhat/console.sol",
+    "/Users/eliojordanlopes/Desktop/Blockchain/Moralis/Vechain/QuestForOasis/contracts/Gameplay.sol": {
+      "lastModificationDate": 1653880073018,
+      "contentHash": "11d270c0cd4794c4014c532318af948f",
+      "sourceName": "contracts/Gameplay.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -67,11 +60,44 @@
         }
       },
       "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
+    },
+    "/Users/eliojordanlopes/Desktop/Blockchain/Moralis/Vechain/QuestForOasis/contracts/Gold.sol": {
+      "lastModificationDate": 1653880364473,
+      "contentHash": "bf6850139cae5a8bf9e3f8fdbfa3059f",
+      "sourceName": "contracts/Gold.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
       "versionPragmas": [
-        ">=0.4.22 <0.9.0"
+        "^0.8.0"
       ],
       "artifacts": [
-        "console"
+        "Gold"
       ]
     },
     "/Users/eliojordanlopes/Desktop/Blockchain/Moralis/Vechain/QuestForOasis/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
@@ -221,8 +247,8 @@
       ]
     },
     "/Users/eliojordanlopes/Desktop/Blockchain/Moralis/Vechain/QuestForOasis/contracts/Greeter.sol": {
-      "lastModificationDate": 1653850649987,
-      "contentHash": "a5aa321ea0198ccb6e03cdcc3e8baeda",
+      "lastModificationDate": 1653880086622,
+      "contentHash": "db4fbc5456e7cd389051d5861ea845c1",
       "sourceName": "contracts/Greeter.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -247,15 +273,9 @@
           }
         }
       },
-      "imports": [
-        "hardhat/console.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "Greeter"
-      ]
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
     }
   }
 }
