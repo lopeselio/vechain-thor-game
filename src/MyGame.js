@@ -125,8 +125,8 @@ import Torchburn from './treasure/torchburn'
 import Walltorch from './treasure/walltorch'
 
 
-import Web3 from 'web3'
-import DungeonToken from '../blockchain/src/abis/DungeonToken.json'
+// import Web3 from 'web3'
+// import DungeonToken from '../blockchain/src/abis/DungeonToken.json'
 // import TropyChar from '../blockchain/src/abis/TrophyChar.json'
 // const Web3 = require("web3");
 
@@ -156,10 +156,27 @@ var tradecomp
 
 let speed = 150
 
+// vechain connex framework web3 providers connex
+const { Framework } = require('@vechain/connex-framework')
+const { Driver, SimpleNet } = require('@vechain/connex-driver')
+
+// ethers, bentm json and getConnex
+const bent = require('bent')
+const getJSON = bent('GET', 'json')
+const getConnex = require('./getConnex')
+const { ethers } = require('@vechain/ethers')
+
+// constants
+const NETWORK_URL = 'https://testnet.veblocks.net'
+const ABI_URL = 'https://raw.githubusercontent.com/vechain/b32/master/ABIs/energy.json'
+const CONTRACT_ADDRESS = '0xEf31C7D024dee36E4757D26e0D073E1e2964EdD1'
+
+
+
 export default class MyGame extends Phaser.Scene {
     constructor() {
         super();
-        loadWeb3()
+        // loadWeb3()
         loadBlockchainData()
         // usersNFTCount()
     }
@@ -1372,106 +1389,41 @@ const sendAlert = () => {
     alert('hello World')
 }
 
-const loadWeb3 = () => {
-    //alert('Connecting Wallet');
+// const loadWeb3 = () => {
+//     //alert('Connecting Wallet');
 
-    if (window.ethereum) {
-        window.web3 = new Web3(window.ethereum)
-        window.ethereum.enable()
-    }
-    else if (window.web3) {
-        window.web3 = new Web3(window.web3.currentProvider)
-    }
-    else {
-        window.alert("Non ethereum browser detected. You should consider trying Metamask")
-    }
-}
-
-let contract
-const loadBlockchainData = () => {
-    const web3 = new Web3(window.ethereum)
-    const networkId = web3.eth.net.getId()
-    
-    const networkData = DungeonToken.networks["42261"]
-    console.log(networkId)
-
-    if (networkData) {
-        const abi = []
-        const address = networkData.address
-        contract = new web3.eth.Contract(DungeonToken.abi, address)
-
-    } else {
-        window.alert('Smart contract not deployed to the Oasis Emerald Paratime network')
-    }
-}
-
-const mintReward = () => {
-    loadBlockchainData()
-
-    const web3 = new Web3(window.ethereum)
-
-    const accounts = web3.eth.getAccounts()
-    accounts.then(data => {
-        console.log('data', data);
-        contract.methods.reward(data[0]).send({ from: data[0] })
-    })
-}
-
-// const usersNFTCount = () => {
-//     const networkData = TropyChar.networks[4]
-//     const address = networkData.address
-//     let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
-
-//     const accounts = web3.eth.getAccounts()
-//     accounts.then(data => {
-//         console.log('data', data);
-//         let nftCount = NFTContract.methods.usersNftCount(data[0]).call()
-//         nftCount.then(nftData => {
-//             console.log(nftData);
-//         })
-//         // console.log('nftCount', nftCount.toString());
-//         NFTContract.methods.requestNewRandomTrophy(
-//             1,
-//             'sagar',
-//             1,
-//             data[0]
-//         ).send({ from: data[0] })
-//     })
-// }
-
-// const rewardNFT = () => {
-//     // const networkData = TropyChar.networks[4]
-//     const address = networkData.address
-//     let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
-
-//     const accounts = web3.eth.getAccounts()
-//     accounts.then(data => {
-//         console.log('data', data);
-//         NFTContract.methods.requestNewRandomTrophy(
-//             1,
-//             'sagar',
-//             1,
-//             data[0]
-//         ).send({ from: data[0] })
-//     })
-// }
-
-// const config = {
-//     type: Phaser.AUTO,
-//     parent: 'phaser-example',
-//     width: 800,
-//     height: 330,
-//     scene: [MyGame, Heart, Coin],
-//     physics: {
-//         default: 'arcade',
-//         arcade: {
-//             debug: false,
-//             gravity: { y: 0 }
-//         }
-//     },
-//     scale: {
-//         zoom: 2
+//     if (window.ethereum) {
+//         window.web3 = new Web3(window.ethereum)
+//         window.ethereum.enable()
 //     }
-// };
+//     else if (window.web3) {
+//         window.web3 = new Web3(window.web3.currentProvider)
+//     }
+//     else {
+//         window.alert("Non ethereum browser detected. You should consider trying Metamask")
+//     }
+// }
 
-// const game = new Phaser.Game(config);
+// let contract
+async function loadBlockchainData () {
+    // get connex instance
+  const connex = await getConnex(NETWORK_URL)
+
+  // load relevant abi
+  const abi = await getJSON(ABI_URL)
+  const abiReward = abi.find(({ name }) => name === 'reward')
+  return abiReward
+}
+
+async function mintReward () {
+    const fetchedabi = await loadBlockchainData();
+
+
+    // const web3 = new Web3(window.ethereum)
+
+    // const accounts = web3.eth.getAccounts()
+    // accounts.then(data => {
+    //     console.log('data', data);
+    //     contract.methods.reward(data[0]).send({ from: data[0] })
+    // })
+}
