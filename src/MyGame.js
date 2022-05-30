@@ -897,7 +897,7 @@ export default class MyGame extends Phaser.Scene {
     }
 
 
-    handlePlayerTreasureCollide(obj1, obj2) {
+    async handlePlayerTreasureCollide(obj1, obj2) {
         this.coinsound = this.sound.add('coinsound')
         this.coinsound.setRate(1.2)
         //rate = coinsound.rate
@@ -905,10 +905,10 @@ export default class MyGame extends Phaser.Scene {
 
         if (obj2.anims.currentAnim.key !== 'chest-empty-open') {
             coin = coin + 4
-            mintReward()
             console.log('coinCOunt', coin);
             sceneEvents.emit('player-coin-mint', coin)
             obj2.anims.play('chest-empty-open')
+            await mintReward()
         }
     }
 
@@ -1397,10 +1397,19 @@ const sendAlert = () => {
     alert('hello World')
 }
 
-const mintReward = () => {
+const mintReward = async () => {
     const contract = connex.thor.account(CONTRACT_ADDRESS);
     const address = "0xE814D375b6595ff92784F1f2f4834f5689226598"
     const clauses = [contract.method(abiByName.reward).asClause(address)];
     console.log(clauses)
-    connex.vendor.sign("tx", clauses)
+    const {txid} = await connex.vendor.sign("tx", clauses).delegate(DELEGATE_URL).request();
+    console.log(txid);
+    const transaction = connex.thor.transaction(txid);
+    let receipt;
+    do {
+        connex.thor.ticker().next();
+        receipt = await transaction.getReceipt();
+    } while (!receipt);
+    console.log(transaction)
+    return transaction;
 };
