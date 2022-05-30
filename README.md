@@ -26,7 +26,13 @@ Vechain Thor Blockchain provides the perfect platform to build games due to its 
 ## Contract Addresses:
 
 - Token Address Dungeon Token $DGN: `0xEf31C7D024dee36E4757D26e0D073E1e2964EdD1` View here: [Vechain Explorer on Testnet](https://explore-testnet.vechain.org/accounts/0xef31c7d024dee36e4757d26e0d073e1e2964edd1/)
-  
+  <img width="1440" alt="image" src="https://user-images.githubusercontent.com/43913734/171018311-1db8da48-a052-42e5-a643-bb2fb103a8f3.png">
+
+  In game transactions along with contract Clauses for the trasnactions, can be viewed on the explorer
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/43913734/171018474-10ca07ac-d870-48a6-aec7-ed053095e28a.png">
+  <img width="1440" alt="image" src="https://user-images.githubusercontent.com/43913734/171018693-1337c046-2b03-48a6-960e-95e029738a95.png">
+
+
 **The clauses associated with this contract call can be viewed in the clauses** here on [https://explore-testnet.vechain.org/transactions/0x08d6e07a5edde04843a5dd3ab562d7b93e7225ddbac59b4bc80ff851bb7c381c#clauses](https://explore-testnet.vechain.org/transactions/0x08d6e07a5edde04843a5dd3ab562d7b93e7225ddbac59b4bc80ff851bb7c381c#clauses)
 
 
