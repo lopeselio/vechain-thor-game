@@ -123,6 +123,7 @@ import Flask from './treasure/flask'
 import Tradecomp from './treasure/tradecomp'
 import Torchburn from './treasure/torchburn'
 import Walltorch from './treasure/walltorch'
+import Connex from "@vechain/connex";
 
 
 // import Web3 from 'web3'
@@ -160,24 +161,33 @@ let speed = 150
 const { Framework } = require('@vechain/connex-framework')
 const { Driver, SimpleNet } = require('@vechain/connex-driver')
 
+const connex = new Connex({
+    node: "https://testnet.veblocks.net",
+    network: "test"
+});
+
 // ethers, bentm json and getConnex
 const bent = require('bent')
 const getJSON = bent('GET', 'json')
 const getConnex = require('./getConnex')
 const { ethers } = require('@vechain/ethers')
+const abiByName = {};
+require("./token.json").forEach((abi) => (abiByName[abi.name] = abi));
+
 
 // constants
-const NETWORK_URL = 'https://testnet.veblocks.net'
-const ABI_URL = 'https://raw.githubusercontent.com/lopeselio/vechain-thor-game/master/token.json'
+const DELEGATE_URL = 'https://sponsor-testnet.vechain.energy/by/90'
+// const NETWORK_URL = 'https://testnet.veblocks.net'
+// const ABI_URL = 'https://raw.githubusercontent.com/lopeselio/vechain-thor-game/master/token.json'
 const CONTRACT_ADDRESS = '0xEf31C7D024dee36E4757D26e0D073E1e2964EdD1'
+// const wallet = ethers.Wallet.createRandom();
 
 
 
 export default class MyGame extends Phaser.Scene {
-    // constructor() {
-    //     super();
-    //     // loadBlockchainData()
-    // }
+    constructor() {
+        super();
+    }
 
     preload() {
         this.load.image('tiles', logoImg2)
@@ -1387,42 +1397,9 @@ const sendAlert = () => {
     alert('hello World')
 }
 
-// const loadWeb3 = () => {
-//     //alert('Connecting Wallet');
-
-//     if (window.ethereum) {
-//         window.web3 = new Web3(window.ethereum)
-//         window.ethereum.enable()
-//     }
-//     else if (window.web3) {
-//         window.web3 = new Web3(window.web3.currentProvider)
-//     }
-//     else {
-//         window.alert("Non ethereum browser detected. You should consider trying Metamask")
-//     }
-// }
-
-// let contract
-async function loadBlockchainData () {
-    // get connex instance
-  const connex = await getConnex(NETWORK_URL)
-
-  // load relevant abi
-  const abi = await getJSON(ABI_URL)
-  const abiReward = abi.find(({ name }) => name === 'reward')
-  console.log("abiReward: ", abiReward)
-  return abiReward
-}
-
-async function mintReward () {
-    const fetchedabi = await loadBlockchainData();
-
-
-    // const web3 = new Web3(window.ethereum)
-
-    // const accounts = web3.eth.getAccounts()
-    // accounts.then(data => {
-    //     console.log('data', data);
-    //     contract.methods.reward(data[0]).send({ from: data[0] })
-    // })
-}
+const mintReward = async () => {
+    const contract = connex.thor.account(CONTRACT_ADDRESS);
+    const address = "0xE814D375b6595ff92784F1f2f4834f5689226598"
+    const clauses = [contract.method(abiByName.reward).asClause(address)];
+    await connex.vendor.sign("tx", clauses).delegate(DELEGATE_URL)
+};
