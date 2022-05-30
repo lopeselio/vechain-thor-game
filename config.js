@@ -1,2 +1,3 @@
-// MyToken deployed to: 0x4A63D6f6bEFA4492b209c4d817c7354Eb9ECB629
-// minted 2.0 of Dungeon to myself at 0xbDA5747bFD65F08deb54cb465eB87D40e51B197E
+// DungeonToken deployed to: 0xEf31C7D024dee36E4757D26e0D073E1e2964EdD1
+// MyToken deployed to: 0x87D785e231aA4156C752592E38e7435B3673c08A
+// minted 2.0 of Dungeon to myself at 0x7eF0CbaDFc0da51A6153F35a99185B59a8cbc463

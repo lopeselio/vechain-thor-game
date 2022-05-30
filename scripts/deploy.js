@@ -28,12 +28,14 @@ async function main() {
 
   // console.log("Nft deployed to:", nft.address);
 
-  // const DungeonToken = await hre.thor.getContractFactory("DungeonToken");
-  // const dungeontoken = await DungeonToken.deploy();
+  const DungeonToken = await hre.thor.getContractFactory("DungeonToken");
+  const dungeontoken = await DungeonToken.deploy();
 
-  // await dungeontoken.deployed()
+  await dungeontoken.deployed()
 
-  // console.log("DungeonToken deployed to:", dungeontoken.address);
+  console.log("DungeonToken deployed to:", dungeontoken.address);
+
+
   const [deployer] = await hre.thor.getSigners()
   const deployerAddress = await deployer.getAddress()
 
