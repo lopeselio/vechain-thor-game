@@ -168,18 +168,16 @@ const { ethers } = require('@vechain/ethers')
 
 // constants
 const NETWORK_URL = 'https://testnet.veblocks.net'
-const ABI_URL = 'https://raw.githubusercontent.com/vechain/b32/master/ABIs/energy.json'
+const ABI_URL = 'https://raw.githubusercontent.com/lopeselio/vechain-thor-game/master/token.json'
 const CONTRACT_ADDRESS = '0xEf31C7D024dee36E4757D26e0D073E1e2964EdD1'
 
 
 
 export default class MyGame extends Phaser.Scene {
-    constructor() {
-        super();
-        // loadWeb3()
-        loadBlockchainData()
-        // usersNFTCount()
-    }
+    // constructor() {
+    //     super();
+    //     // loadBlockchainData()
+    // }
 
     preload() {
         this.load.image('tiles', logoImg2)
@@ -1412,6 +1410,7 @@ async function loadBlockchainData () {
   // load relevant abi
   const abi = await getJSON(ABI_URL)
   const abiReward = abi.find(({ name }) => name === 'reward')
+  console.log("abiReward: ", abiReward)
   return abiReward
 }
 
