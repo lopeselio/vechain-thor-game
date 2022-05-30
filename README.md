@@ -1,6 +1,7 @@
 # Vechain-Thor RPG Quest
+<center><img width="267" alt="Screenshot 2022-05-30 at 7 36 17 PM" src="https://user-images.githubusercontent.com/43913734/171017384-f82ea077-605d-40a0-8c54-633ec9754d3d.png"><center>
 
-An RPG dungeon game wherein the player has to enconter and fight monsters who are guarding chests, and gain loot from the chests in the form of ERC-20 equivalent VIP-180 $DGN (in-game) token (Dungeon Token), deployed on Vechain-Thor Testnet.
+An RPG dungeon game wherein the player has to encounter and fight monsters who are guarding chests, and gain loot from the chests in the form of ERC-20 equivalent VIP-180 $DGN (in-game) token (Dungeon Token), deployed on Vechain-Thor Testnet.
 
 The player has to finally unlock the locked gates by seeking the keys to the token-gate who is locked inside a wall in the dungeon, and ultimately defeat the the ultimate evil angel who possesses the final key to the Vechain NFT (VIP-190) token. Once the user collect the Vechain NFT collectible, an NFT is minted to your NFT-Trophy Gallery(to be implemented).
 
