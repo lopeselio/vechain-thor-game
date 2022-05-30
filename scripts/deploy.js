@@ -11,7 +11,7 @@ async function main() {
   //
   // If this script is run directly using `node` you may want to call compile
   // manually to make sure everything is compiled
-  // await hre.run('compile');
+  await hre.run('compile');
 
   // We get the contract to deploy
   // const NFTMarket = await hre.thor.getContractFactory("NFTMarket");
@@ -28,12 +28,30 @@ async function main() {
 
   // console.log("Nft deployed to:", nft.address);
 
-  const DungeonToken = await hre.thor.getContractFactory("DungeonToken");
-  const dungeontoken = await DungeonToken.deploy();
+  // const DungeonToken = await hre.thor.getContractFactory("DungeonToken");
+  // const dungeontoken = await DungeonToken.deploy();
 
-  await dungeontoken.deployed()
+  // await dungeontoken.deployed()
 
-  console.log("DungeonToken deployed to:", dungeontoken.address);
+  // console.log("DungeonToken deployed to:", dungeontoken.address);
+
+
+
+  const Gold = await hre.thor.getContractFactory("Gold");
+  const gold = await Gold.deploy();
+
+  await gold.deployed()
+
+  console.log("Gold deployed to:", gold.address);
+
+
+
+  // const Gameplay = await hre.thor.getContractFactory("Gameplay");
+  // const gameplay = await Gameplay.deploy();
+
+  // await gameplay.deployed()
+
+  // console.log("DungeonToken deployed to:", gameplay.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
