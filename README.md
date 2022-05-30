@@ -23,7 +23,7 @@ The player has to finally unlock the locked gates by seeking the keys to the tok
 Vechain Thor Blockchain provides the perfect platform to build games due to its scalability and robust infrastructure, and moreover low gas fees which are paid using VTHO tokens.
 - Sync2 Wallet to sign transactions on Vechain and return responses to the NodeJS dApp.
 
-## Contract Addresses:
+## Contract Addresses of the game:
 
 - Token Address Dungeon Token $DGN: `0xEf31C7D024dee36E4757D26e0D073E1e2964EdD1` View here: [Vechain Explorer on Testnet](https://explore-testnet.vechain.org/accounts/0xef31c7d024dee36e4757d26e0d073e1e2964edd1/)
   <img width="1440" alt="image" src="https://user-images.githubusercontent.com/43913734/171018311-1db8da48-a052-42e5-a643-bb2fb103a8f3.png">
