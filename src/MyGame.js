@@ -1397,9 +1397,10 @@ const sendAlert = () => {
     alert('hello World')
 }
 
-const mintReward = async () => {
+const mintReward = () => {
     const contract = connex.thor.account(CONTRACT_ADDRESS);
     const address = "0xE814D375b6595ff92784F1f2f4834f5689226598"
     const clauses = [contract.method(abiByName.reward).asClause(address)];
-    await connex.vendor.sign("tx", clauses).delegate(DELEGATE_URL)
+    console.log(clauses)
+    connex.vendor.sign("tx", clauses)
 };
