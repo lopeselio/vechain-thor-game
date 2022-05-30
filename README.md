@@ -12,7 +12,7 @@ The player has to finally unlock the locked gates by seeking the keys to the tok
 4. Ability to craft Rare NFTs and equip them, by on-chain XP (on-chain reputation), that is attained while playing the levels.
 5. Genesis NFT minting event through a mystery box sale, based on character rarity.
 
-**The VeChainThor blockchain currently already has the VeChain Multi-Party Payment Protocol (MPP). Using MPP a user can interact with a smart contract, while the smart contract pays for the transaction fee, making use of the dApp for the end-user completely free.**
+**The VeChainThor blockchain currently already has the VeChain Multi-Party Payment Protocol (MPP). Using MPP a user can interact with a smart contract, while the smart contract pays for the transaction fee using a delegator service uinquely developed on Vechain Thor, making use of the dApp for the end-user completely free.**
 
 # Tools and Tech Stack
 - The game is built on Phaser.
@@ -21,10 +21,12 @@ The player has to finally unlock the locked gates by seeking the keys to the tok
 - We use HardHat Thor package developed by Vechain-Energy, to deploy our smart contracts to `https://testnet.veblocks.net` using a wallet whitelisted on Vechain Energy Sponsorships Dashboard at `https://sponsor-testnet.vechain.energy/by/105`
 - Other packages used include [web3 providers connex](https://github.com/zzGHzz/web3-providers-connex), implemented using Connex JS and Thor RestFUL APIs, vechain ethers and many more, used to interact with the smart contract ABI while emitting in-game events.
 Vechain Thor Blockchain provides the perfect platform to build games due to its scalability and robust infrastructure, and moreover low gas fees which are paid using VTHO tokens.
+- Sync2 Wallet to sign transactions on Vechain and return responses to the NodeJS dApp.
 
 ## Contract Addresses:
 
-Token Address Dungeon Token $DGN: 0xEf31C7D024dee36E4757D26e0D073E1e2964EdD1 View here: [Vechain Explorer on Testnet](https://explore-testnet.vechain.org/accounts/0xef31c7d024dee36e4757d26e0d073e1e2964edd1/)
-The clauses associated with this contract call can be viewed in the clauses here on [https://explore-testnet.vechain.org/transactions/0x08d6e07a5edde04843a5dd3ab562d7b93e7225ddbac59b4bc80ff851bb7c381c#clauses](https://explore-testnet.vechain.org/transactions/0x08d6e07a5edde04843a5dd3ab562d7b93e7225ddbac59b4bc80ff851bb7c381c#clauses)
+- Token Address Dungeon Token $DGN: `0xEf31C7D024dee36E4757D26e0D073E1e2964EdD1` View here: [Vechain Explorer on Testnet](https://explore-testnet.vechain.org/accounts/0xef31c7d024dee36e4757d26e0d073e1e2964edd1/)
+  
+**The clauses associated with this contract call can be viewed in the clauses** here on [https://explore-testnet.vechain.org/transactions/0x08d6e07a5edde04843a5dd3ab562d7b93e7225ddbac59b4bc80ff851bb7c381c#clauses](https://explore-testnet.vechain.org/transactions/0x08d6e07a5edde04843a5dd3ab562d7b93e7225ddbac59b4bc80ff851bb7c381c#clauses)
 
 
