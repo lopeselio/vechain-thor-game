@@ -34,15 +34,26 @@ async function main() {
   // await dungeontoken.deployed()
 
   // console.log("DungeonToken deployed to:", dungeontoken.address);
+  const [deployer] = await hre.thor.getSigners()
+  const deployerAddress = await deployer.getAddress()
+
+  const MyToken = await hre.thor.getContractFactory("MyToken");
+  const myToken = await MyToken.deploy();
+
+  await myToken.deployed();
+  console.log("MyToken deployed to:", myToken.address);
+
+  const name = await myToken.name()
+  const balance = await myToken.balanceOf(deployerAddress)
+  console.log(`minted ${hre.ethers.utils.formatEther(balance)} of ${name} to myself at ${deployerAddress}`)
 
 
+  // const Gold = await hre.thor.getContractFactory("Gold");
+  // const gold = await Gold.deploy();
 
-  const Gold = await hre.thor.getContractFactory("Gold");
-  const gold = await Gold.deploy();
+  // await gold.deployed()
 
-  await gold.deployed()
-
-  console.log("Gold deployed to:", gold.address);
+  // console.log("Gold deployed to:", gold.address);
 
 
 
@@ -53,7 +64,7 @@ async function main() {
 
   // console.log("DungeonToken deployed to:", gameplay.address);
 }
-
+// 0xBA062824c05A17D2a9254b63E0235111c3d282e6
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
 main()
